@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto por Solicitud</title>
+    <title>Contacto con la Unidad de Transparencia para su Solicitud de Acceso</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,12 +27,31 @@
             background-color: #25D366;
         }
     </style>
+    <script>
+        // Leer el parámetro 'solicitud' de la URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Mostrar el número de solicitud
+        function displaySolicitud() {
+            const solicitud = getQueryParam('solicitud');
+            if (solicitud) {
+                document.getElementById('solicitud-id').innerText = solicitud;
+
+                // Actualizar enlaces dinámicos
+                document.getElementById('link-teams').href = `https://teams.microsoft.com/l/chat/0/0?users=maria.lourdes.chavez@pemex.com&topic=Solicitud_${solicitud}`;
+                document.getElementById('link-whatsapp').href = `https://wa.me/+5215513009559?text=Hola,%20estoy%20contactando%20sobre%20la%20solicitud%20${solicitud}`;
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="displaySolicitud()">
     <h1>Contacto por Solicitud</h1>
+    <p>Número de Solicitud: <span id="solicitud-id">Cargando...</span></p>
     <p>Elija una opción para contactar:</p>
-    <a href="https://teams.microsoft.com/l/chat/0/0?users=maria.lourdes.chavez@pemex.com&topic=Solicitud_330023725000000" class="button teams">Contactar por Teams</a>
-    <a href="https://wa.me/+525513009559?text=Hola,%20estoy%20contactando%20sobre%20la%20solicitud%20330023725000000" class="button whatsapp">Contactar por WhatsApp</a>
+    <a id="link-teams" href="#" class="button teams">Contactar por Teams</a>
+    <a id="link-whatsapp" href="#" class="button whatsapp">Contactar por WhatsApp</a>
 </body>
 </html>
-
