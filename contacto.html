@@ -1,22 +1,37 @@
-import qrcode
-<html>
-<td></td># URL de la página de contacto
-url = "https://M4dl0cs.github.io/contacto_qr/contacto.html"
-
-# Crear el código QR
-qr = qrcode.QRCode(
-    version=1,
-    error_correction=qrcode.constants.ERROR_CORRECT_L,
-    box_size=10,
-    border=4,
-)
-qr.add_data(url)
-qr.make(fit=True)
-
-# Guardar el código QR como imagen
-filename = "codigo_qr_contacto.png"
-img = qr.make_image(fill_color="black", back_color="white")
-img.save(filename)
-
-print(f"Código QR generado y guardado como '{filename}'")
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+        }
+        .teams {
+            background-color: #464EB8;
+        }
+        .whatsapp {
+            background-color: #25D366;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contacto</h1>
+    <p>Elija una opción para continuar:</p>
+    <a href="https://teams.microsoft.com/l/chat/0/0?users=correo@example.com&topic=330023725000001" class="button teams">Contactar por Teams</a>
+    <a href="https://wa.me/+521234567890?text=Hola,%20estoy%20contactando%20sobre%20la%20solicitud%20330023725000001" class="button whatsapp">Contactar por WhatsApp</a>
+</body>
 </html>
