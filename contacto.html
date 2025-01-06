@@ -41,18 +41,25 @@
                 document.getElementById('solicitud-id').innerText = solicitud;
 
                 // Actualizar enlaces dinámicos
-                document.getElementById('link-teams').href = `https://teams.microsoft.com/l/chat/0/0?users=maria.lourdes.chavez@pemex.com&topic=Solicitud_${solicitud}`;
-                document.getElementById('link-whatsapp').href = `https://wa.me/+5215513009559?text=Hola,%20estoy%20contactando%20sobre%20la%20solicitud%20${solicitud}`;
+                const correosTeams = "maria.lourdes.chavez@pemex.com,aldredo.emmanuel.galicia@pemex.com";
+                document.getElementById('link-teams').href = `https://teams.microsoft.com/l/chat/0/0?users=${correosTeams}&topic=Solicitud_${solicitud}`;
+
+                const numeroWhatsApp1 = "+5215513009559";
+                const numeroWhatsApp2 = "+5215566302794";
+                document.getElementById('link-whatsapp-1').href = `https://wa.me/${numeroWhatsApp1}?text=Hola,%20estoy%20contactando%20sobre%20la%20solicitud%20${solicitud}`;
+                document.getElementById('link-whatsapp-2').href = `https://wa.me/${numeroWhatsApp2}?text=Hola,%20estoy%20contactando%20sobre%20la%20solicitud%20${solicitud}`;
             }
         }
     </script>
 </head>
 <body onload="displaySolicitud()">
     <h1>Estimada persona ciudadana,</h1> 
-    <h1>El equipo de la Unidad de Transparencia pone a su disposición los siguientes medios de contacto:</h1></h1>
+    <h1>El equipo de la Unidad de Transparencia pone a su disposición los siguientes medios de contacto:</h1>
     <p>Número de Solicitud: <span id="solicitud-id">Cargando...</span></p>
     <p>Elija una opción para contactar con el equipo:</p>
     <a id="link-teams" href="#" class="button teams">Contactar por Teams</a>
-    <a id="link-whatsapp" href="#" class="button whatsapp">Contactar por WhatsApp</a>
+    <a id="link-whatsapp-1" href="#" class="button whatsapp">Contactar por WhatsApp (Primario)</a>
+    <a id="link-whatsapp-2" href="#" class="button whatsapp">Contactar por WhatsApp (Secundario)</a>
 </body>
 </html>
+
